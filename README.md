@@ -28,7 +28,15 @@ hf download VAST-AI/TripoSplat --local-dir ckpts/
 pip install huggingface_hub
 python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='VAST-AI/TripoSplat', local_dir='ckpts/')"
 
-# 3. Manual download.
+# 3. Use ModelScope CLI
+pip install modelscope
+modelscope download VAST-AI-Research/TripoSplat --local_dir ckpts/
+
+# 4. Use modelscope Python SDK
+pip install modelscope
+python -c "from modelscope import snapshot_download; snapshot_download('VAST-AI-Research/TripoSplat', local_dir='ckpts/')"
+
+# 5. Manual download from HuggingFace / ModelScope.
 ```
 
 Setup the environment and run the example inference script.
